@@ -28,4 +28,8 @@ public class Item {
     public String getName() {
         return name;
     }
+
+    public Item reduceQuality() {
+        return new Item(name, sellIn, quality-1);
+    }
 }

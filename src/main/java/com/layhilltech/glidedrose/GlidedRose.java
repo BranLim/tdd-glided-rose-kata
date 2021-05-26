@@ -14,4 +14,12 @@ public class GlidedRose {
     public List<Item> stocks() {
         return items;
     }
+
+    public void updateQuality() {
+        for(int i = 0 ; i < items.size();i++)
+        {
+            Item currentItem = items.get(i).reduceQuality();
+            items.set(i, currentItem);
+        }
+    }
 }
