@@ -1,9 +1,9 @@
 package com.layhilltech.glidedrose;
 
 public class Item {
-    private final String name;
-    private final int sellIn;
-    private final int quality;
+    private String name;
+    private int sellIn;
+    private int quality;
 
     public Item(String name, int sellIn, int quality) {
         if (quality < 0) {
@@ -30,6 +30,9 @@ public class Item {
     }
 
     public Item reduceQuality() {
-        return new Item(name, sellIn, quality-1);
+        if (sellIn == 0) {
+            return new Item(name, sellIn, quality - 2);
+        }
+        return new Item(name, sellIn, quality - 1);
     }
 }
