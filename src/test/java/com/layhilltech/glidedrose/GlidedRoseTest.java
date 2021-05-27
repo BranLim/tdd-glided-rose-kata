@@ -143,4 +143,18 @@ public class GlidedRoseTest {
         glidedRose.updateQuality();
         assertEquals(3, glidedRose.stocks().get(0).getQuality());
     }
+
+    @Test
+    void testNormalItemWithSellIn4AndDaysQualityStartAt4ShouldDropTo0After5Days() {
+        List<Item> items = new ArrayList();
+        items.add(new Item("Foo", 4, 4));
+
+        GlidedRose glidedRose = new GlidedRose(items);
+        glidedRose.updateQuality();
+        glidedRose.updateQuality();
+        glidedRose.updateQuality();
+        glidedRose.updateQuality();
+        glidedRose.updateQuality();
+        assertEquals(0, glidedRose.stocks().get(0).getQuality());
+    }
 }
