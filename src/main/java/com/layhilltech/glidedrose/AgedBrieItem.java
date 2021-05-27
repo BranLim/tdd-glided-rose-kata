@@ -7,6 +7,6 @@ public class AgedBrieItem extends Item {
 
     @Override
     public Item reduceQuality() {
-        return new AgedBrieItem(this.getName(), super.getSellIn(), Math.min(50, this.getQuality() + 1));
+        return new AgedBrieItem(this.getName(), super.getSellIn(), Math.min(MAX_QUALITY, this.getQuality() + 1));
     }
 }

@@ -1,12 +1,11 @@
 package com.layhilltech.glidedrose;
 
 public class Item {
+
+    public final static int MAX_QUALITY = 50;
     private String name;
     private int sellIn;
     private int quality;
-
-    protected Item() {
-    }
 
     public Item(String name, int sellIn, int quality) {
         if (quality < 0) {
