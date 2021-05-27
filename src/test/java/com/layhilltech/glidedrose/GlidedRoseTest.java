@@ -24,7 +24,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testNormalItemQualityWithQuality5ShouldReduceTo4AfterADay() {
+    void testNormalItemQualityStartAt5ShouldReduceTo4AfterOneDay() {
         List<Item> items = new ArrayList();
         items.add(new Item("Foo", 5, 5));
 
@@ -34,7 +34,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testNormalItemSellByPassedThenQualityAt4ShouldBe2() {
+    void testNormalItemQualityStartAt4ShouldReduceTo2AfterExpiry() {
         List<Item> items = new ArrayList();
         items.add(new Item("Foo", 0, 4));
 
@@ -44,9 +44,9 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testNormalItemSellByPassedThenQualityAt1ShouldBe0() {
+    void testNormalItemQualityStartAt1ShouldBe0AfterExpiry() {
         List<Item> items = new ArrayList();
-        items.add(new Item("Foo", 0, 0));
+        items.add(new Item("Foo", 0, 1));
 
         GlidedRose glidedRose = new GlidedRose(items);
         glidedRose.updateQuality();
@@ -54,9 +54,9 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testAgedBrieQualityAt2IncreaseByOneWithExpiredSellBy() {
+    void testAgedBrieQualityAt2ShouldIncreaseBy1AfterExpiry() {
         List<Item> items = new ArrayList();
-        items.add(new AgedBrieItem("AgedBrie", 1, 2));
+        items.add(new AgedBrieItem("AgedBrie", 0, 2));
 
         GlidedRose glidedRose = new GlidedRose(items);
         glidedRose.updateQuality();
@@ -125,7 +125,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testAddConjuredItemsWithQualityStartAt10ButReducesTo8() {
+    void testAddConjuredItemsWithQualityStartAt10ButReducesTo8After1Day() {
         List<Item> items = new ArrayList();
         items.add(new ConjuredItem("Conjured", 2, 10));
 
@@ -135,7 +135,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testAddConjuredItemsWithQualityStartAt5ButReducesTo3() {
+    void testAddConjuredItemsWithQualityStartAt5ButReducesTo3After1Day() {
         List<Item> items = new ArrayList();
         items.add(new ConjuredItem("Conjured", 2, 5));
 
