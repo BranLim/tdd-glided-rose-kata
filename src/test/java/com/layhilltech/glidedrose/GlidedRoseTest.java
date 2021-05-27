@@ -123,4 +123,24 @@ public class GlidedRoseTest {
         glidedRose.updateQuality();
         assertEquals(80, glidedRose.stocks().get(0).getQuality());
     }
+
+    @Test
+    void testAddConjuredItemsWithQualityStartAt10ButReducesTo8() {
+        List<Item> items = new ArrayList();
+        items.add(new ConjuredItem("Conjured", 2, 10));
+
+        GlidedRose glidedRose = new GlidedRose(items);
+        glidedRose.updateQuality();
+        assertEquals(8, glidedRose.stocks().get(0).getQuality());
+    }
+
+    @Test
+    void testAddConjuredItemsWithQualityStartAt5ButReducesTo3() {
+        List<Item> items = new ArrayList();
+        items.add(new ConjuredItem("Conjured", 2, 5));
+
+        GlidedRose glidedRose = new GlidedRose(items);
+        glidedRose.updateQuality();
+        assertEquals(3, glidedRose.stocks().get(0).getQuality());
+    }
 }
