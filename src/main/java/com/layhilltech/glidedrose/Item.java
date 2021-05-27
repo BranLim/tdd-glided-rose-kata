@@ -12,9 +12,6 @@ public class Item {
         if (quality < 0) {
             throw new IllegalArgumentException("Quality should never be negative");
         }
-        if (quality > 50) {
-            throw new IllegalArgumentException("Quality should never be more than 50");
-        }
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;

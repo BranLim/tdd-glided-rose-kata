@@ -24,11 +24,6 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testNormalItemQualityWhen51ThrowsQualityShouldNotBeMoreThanFifty() {
-        assertThrows(IllegalArgumentException.class, () -> new Item("Foo", 5, 51), "Quality should not be more than 50");
-    }
-
-    @Test
     void testNormalItemQualityWithQuality5ShouldReduceTo4AfterADay() {
         List<Item> items = new ArrayList();
         items.add(new Item("Foo", 5, 5));
@@ -120,12 +115,12 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testSulfurasItemQualityStartAt5ButNeverChange() {
+    void testSulfurasItemQualityStartAt80ButNeverChange() {
         List<Item> items = new ArrayList();
-        items.add(new SulfurasItem("Sulfuras", 0, 5));
+        items.add(new SulfurasItem("Sulfuras", 0, 80));
 
         GlidedRose glidedRose = new GlidedRose(items);
         glidedRose.updateQuality();
-        assertEquals(5, glidedRose.stocks().get(0).getQuality());
+        assertEquals(80, glidedRose.stocks().get(0).getQuality());
     }
 }
