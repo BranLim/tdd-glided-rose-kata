@@ -39,12 +39,22 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testNormalItemSellByPassedThenQualityShouldDegradeTwiceAsFast() {
+    void testNormalItemSellByPassedThenQualityAt4ShouldBe2() {
         List<Item> items = new ArrayList();
         items.add(new Item("Foo", 0, 4));
 
         GlidedRose glidedRose = new GlidedRose(items);
         glidedRose.updateQuality();
         assertEquals(2, glidedRose.stocks().get(0).getQuality());
+    }
+
+    @Test
+    void testNormalItemSellByPassedThenQualityAt1ShouldBe0() {
+        List<Item> items = new ArrayList();
+        items.add(new Item("Foo", 0, 0));
+
+        GlidedRose glidedRose = new GlidedRose(items);
+        glidedRose.updateQuality();
+        assertEquals(0, glidedRose.stocks().get(0).getQuality());
     }
 }

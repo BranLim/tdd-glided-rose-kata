@@ -31,8 +31,8 @@ public class Item {
 
     public Item reduceQuality() {
         if (sellIn == 0) {
-            return new Item(name, sellIn, quality - 2);
+            return new Item(name, sellIn, Math.max(0, quality - 2));
         }
-        return new Item(name, sellIn, quality - 1);
+        return new Item(name, sellIn, Math.max(0, quality - 1));
     }
 }
