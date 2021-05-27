@@ -3,6 +3,7 @@ package com.layhilltech.glidedrose;
 public class Item {
 
     public final static int MAX_QUALITY = 50;
+    public final static int MIN_QUALITY = 0;
     private String name;
     private int sellIn;
     private int quality;
@@ -33,9 +34,9 @@ public class Item {
 
     public Item reduceQuality() {
         if (sellIn == 0) {
-            return new Item(name, sellIn, Math.max(0, quality - 2));
+            return new Item(name, sellIn, Math.max(MIN_QUALITY, quality - 2));
         }
-        return new Item(name, sellIn, Math.max(0, quality - 1));
+        return new Item(name, sellIn, Math.max(MIN_QUALITY, quality - 1));
     }
 
 
