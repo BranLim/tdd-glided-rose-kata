@@ -15,7 +15,7 @@ public class BackstagePassItem extends Item {
         } else if (getSellIn() > 0 && getSellIn() <= 5) {
             newQuality = Math.min(MAX_QUALITY, newQuality + 3);
         } else {
-            newQuality = 0;
+            newQuality = MIN_QUALITY;
         }
         return new BackstagePassItem(getName(), getSellIn(), newQuality);
     }
