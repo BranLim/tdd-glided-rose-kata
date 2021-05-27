@@ -21,10 +21,6 @@ public class Item {
         return quality;
     }
 
-    public int getSellIn() {
-        return sellIn;
-    }
-
     public String getName() {
         return name;
     }
