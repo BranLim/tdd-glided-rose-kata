@@ -69,6 +69,17 @@ public class GlidedRoseTest {
     }
 
     @Test
+    void testBackstagePassesItemQualityStartAt5ShouldIncreaseBy1IfSellInDateIs11Days() {
+        List<Item> items = new ArrayList();
+        items.add(new BackstagePassItem("BackstagePass", 11, 5));
+
+        GlidedRose glidedRose = new GlidedRose(items);
+        glidedRose.updateQuality();
+        assertEquals(6, glidedRose.stocks().get(0).getQuality());
+    }
+
+
+    @Test
     void testBackstagePassesItemQualityStartAt5ShouldIncreaseBy2IfSellInDateIs10Days() {
         List<Item> items = new ArrayList();
         items.add(new BackstagePassItem("BackstagePass", 10, 5));
