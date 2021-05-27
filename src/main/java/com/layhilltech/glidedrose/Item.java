@@ -5,6 +5,9 @@ public class Item {
     private int sellIn;
     private int quality;
 
+    protected Item() {
+    }
+
     public Item(String name, int sellIn, int quality) {
         if (quality < 0) {
             throw new IllegalArgumentException("Quality should never be negative");
@@ -21,6 +24,10 @@ public class Item {
         return quality;
     }
 
+    protected int getSellIn() {
+        return sellIn;
+    }
+
     public String getName() {
         return name;
     }
@@ -31,4 +38,6 @@ public class Item {
         }
         return new Item(name, sellIn, Math.max(0, quality - 1));
     }
+
+
 }

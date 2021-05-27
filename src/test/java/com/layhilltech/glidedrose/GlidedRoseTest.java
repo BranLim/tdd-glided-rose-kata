@@ -57,4 +57,14 @@ public class GlidedRoseTest {
         glidedRose.updateQuality();
         assertEquals(0, glidedRose.stocks().get(0).getQuality());
     }
+
+    @Test
+    void testAgedBrieQualityAt2IncreaseByOneWithExpiredSellBy() {
+        List<Item> items = new ArrayList();
+        items.add(new AgedBrieItem("AgedBrie", 1, 2));
+
+        GlidedRose glidedRose = new GlidedRose(items);
+        glidedRose.updateQuality();
+        assertEquals(3, glidedRose.stocks().get(0).getQuality());
+    }
 }
