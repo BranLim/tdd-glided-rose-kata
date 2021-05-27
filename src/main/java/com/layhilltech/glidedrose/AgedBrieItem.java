@@ -6,7 +6,7 @@ public class AgedBrieItem extends Item {
     }
 
     @Override
-    public Item reduceQuality() {
+    public Item changeQuality() {
         return new AgedBrieItem(this.getName(), super.getSellIn(), Math.min(MAX_QUALITY, this.getQuality() + 1));
     }
 }

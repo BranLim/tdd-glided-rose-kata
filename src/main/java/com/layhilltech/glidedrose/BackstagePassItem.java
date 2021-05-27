@@ -6,7 +6,7 @@ public class BackstagePassItem extends Item {
     }
 
     @Override
-    public Item reduceQuality() {
+    public Item changeQuality() {
         int newQuality = getQuality();
         if (getSellIn() > 10) {
             newQuality = Math.min(MAX_QUALITY, newQuality + 1);

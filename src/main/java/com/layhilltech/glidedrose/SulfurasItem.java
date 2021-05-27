@@ -6,7 +6,7 @@ public class SulfurasItem extends Item {
     }
 
     @Override
-    public Item reduceQuality() {
+    public Item changeQuality() {
         return new SulfurasItem(getName(), getSellIn(), getQuality());
     }
 }

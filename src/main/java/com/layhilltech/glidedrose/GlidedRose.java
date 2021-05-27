@@ -1,7 +1,6 @@
 package com.layhilltech.glidedrose;
 
 import java.util.List;
-import java.util.Map;
 
 public class GlidedRose {
 
@@ -18,7 +17,7 @@ public class GlidedRose {
     public void updateQuality() {
         for(int i = 0 ; i < items.size();i++)
         {
-            Item currentItem = items.get(i).reduceQuality();
+            Item currentItem = items.get(i).changeQuality();
             items.set(i, currentItem);
         }
     }

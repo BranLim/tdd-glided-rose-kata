@@ -32,7 +32,7 @@ public class Item {
         return name;
     }
 
-    public Item reduceQuality() {
+    public Item changeQuality() {
         if (sellIn == 0) {
             return new Item(name, sellIn, Math.max(MIN_QUALITY, quality - 2));
         }
