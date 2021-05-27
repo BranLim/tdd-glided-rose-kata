@@ -118,4 +118,14 @@ public class GlidedRoseTest {
         glidedRose.updateQuality();
         assertEquals(0, glidedRose.stocks().get(0).getQuality());
     }
+
+    @Test
+    void testSulfurasItemQualityStartAt5ButNeverChange() {
+        List<Item> items = new ArrayList();
+        items.add(new SulfurasItem("Sulfuras", 0, 5));
+
+        GlidedRose glidedRose = new GlidedRose(items);
+        glidedRose.updateQuality();
+        assertEquals(5, glidedRose.stocks().get(0).getQuality());
+    }
 }
