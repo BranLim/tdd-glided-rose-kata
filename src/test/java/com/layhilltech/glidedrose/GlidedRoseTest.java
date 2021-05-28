@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class GlidedRoseTest {
 
     @Test
-    void testGlidedRoseAddNewNormalItemNamedFoo() {
+    void glidedRoseAddNewNormalItemNamedFoo() {
 
         List<Item> items = List.of(new Item("Foo", 5, 1));
         GlidedRose glidedRose = new GlidedRose(items);
@@ -19,12 +19,12 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testNormalItemQualityWhenNegativeThrowsQualityShouldNotBeNegative() {
+    void normalItemQualityWhenNegativeThrowsQualityShouldNotBeNegative() {
         assertThrows(IllegalArgumentException.class, () -> new Item("Foo", 5, -1), "Quality should not be negative");
     }
 
     @Test
-    void testNormalItemQualityStartAt5ShouldReduceTo4AfterOneDay() {
+    void normalItemQualityStartAt5ShouldReduceTo4AfterOneDay() {
         List<Item> items = new ArrayList();
         items.add(new Item("Foo", 5, 5));
 
@@ -34,7 +34,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testNormalItemQualityStartAt4ShouldReduceTo2AfterExpiry() {
+    void normalItemQualityStartAt4ShouldReduceTo2AfterExpiry() {
         List<Item> items = new ArrayList();
         items.add(new Item("Foo", 0, 4));
 
@@ -44,7 +44,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testNormalItemQualityStartAt1ShouldBe0AfterExpiry() {
+    void normalItemQualityStartAt1ShouldBe0AfterExpiry() {
         List<Item> items = new ArrayList();
         items.add(new Item("Foo", 0, 1));
 
@@ -54,7 +54,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testAgedBrieQualityAt2ShouldIncreaseBy1AfterExpiry() {
+    void agedBrieQualityAt2ShouldIncreaseBy1AfterExpiry() {
         List<Item> items = new ArrayList();
         items.add(new AgedBrieItem("AgedBrie", 0, 2));
 
@@ -64,7 +64,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testBackstagePassesItemQualityStartAt5ShouldIncreaseBy1IfSellInDateIs11Days() {
+    void backstagePassesItemQualityStartAt5ShouldIncreaseBy1IfSellInDateIs11Days() {
         List<Item> items = new ArrayList();
         items.add(new BackstagePassItem("BackstagePass", 11, 5));
 
@@ -75,7 +75,7 @@ public class GlidedRoseTest {
 
 
     @Test
-    void testBackstagePassesItemQualityStartAt5ShouldIncreaseBy2IfSellInDateIs10Days() {
+    void backstagePassesItemQualityStartAt5ShouldIncreaseBy2IfSellInDateIs10Days() {
         List<Item> items = new ArrayList();
         items.add(new BackstagePassItem("BackstagePass", 10, 5));
 
@@ -85,7 +85,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testBackstagePassesItemQualityStartAt5ShouldIncreaseBy2IfSellInDateIs9Days() {
+    void backstagePassesItemQualityStartAt5ShouldIncreaseBy2IfSellInDateIs9Days() {
         List<Item> items = new ArrayList();
         items.add(new BackstagePassItem("BackstagePass", 9, 5));
 
@@ -95,7 +95,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testBackstagePassesItemQualityStartAt5ShouldIncreaseBy3IfSellInDateIs5Days() {
+    void backstagePassesItemQualityStartAt5ShouldIncreaseBy3IfSellInDateIs5Days() {
         List<Item> items = new ArrayList();
         items.add(new BackstagePassItem("BackstagePass", 5, 5));
 
@@ -105,7 +105,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testBackstagePassesItemQualityStartAt5ShouldDropTo0IfSellInDateIs0Days() {
+    void backstagePassesItemQualityStartAt5ShouldDropTo0IfSellInDateIs0Days() {
         List<Item> items = new ArrayList();
         items.add(new BackstagePassItem("BackstagePass", 0, 5));
 
@@ -115,7 +115,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testSulfurasItemQualityStartAt80ButNeverChange() {
+    void sulfurasItemQualityStartAt80ButNeverChange() {
         List<Item> items = new ArrayList();
         items.add(new SulfurasItem("Sulfuras", 0, 80));
 
@@ -125,7 +125,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testAddConjuredItemsWithQualityStartAt10ButReducesTo8After1Day() {
+    void conjuredItemsWithQualityStartAt10ButReducesTo8After1Day() {
         List<Item> items = new ArrayList();
         items.add(new ConjuredItem("Conjured", 2, 10));
 
@@ -135,7 +135,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testAddConjuredItemsWithQualityStartAt5ButReducesTo3After1Day() {
+    void conjuredItemsWithQualityStartAt5ButReducesTo3After1Day() {
         List<Item> items = new ArrayList();
         items.add(new ConjuredItem("Conjured", 2, 5));
 
@@ -145,7 +145,7 @@ public class GlidedRoseTest {
     }
 
     @Test
-    void testNormalItemWithSellIn4AndDaysQualityStartAt4ShouldDropTo0After5Days() {
+    void normalItemWithSellIn4AndDaysQualityStartAt4ShouldDropTo0After5Days() {
         List<Item> items = new ArrayList();
         items.add(new Item("Foo", 4, 4));
 
